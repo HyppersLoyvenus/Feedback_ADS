@@ -1,6 +1,6 @@
 # Sistema para coleta de satisfação dos alunos
 
-Este projeto como objetivo criar uma aplicação web para coletar pesquisas de satisfação dos alunos do Curso de Análise e Desenvolvimento de Sistemas. A aplicação utiliza Docker para fornecer um ambiente de desenvolvimento consistente e portátil. Inicio: 22/04/2025
+Este projeto tem como objetivo criar uma aplicação web para coletar pesquisas de satisfação dos alunos do Curso de Análise e Desenvolvimento de Sistemas. A aplicação utiliza Docker para fornecer um ambiente de desenvolvimento consistente e portátil. Inicio do projeto: 22/04/2025
 
 ## Estrutura do projeto
 
@@ -20,7 +20,7 @@ Para configurar o ambiente de desenvolvimento, siga estes passos:
 
 1. **Clone o Repositório**:
    ```bash
-   git clone <ur-do-repositorio>
+   git clone <url-do-repositorio>
    cd Feedback_ADS
    ```
 
@@ -29,4 +29,6 @@ Para configurar o ambiente de desenvolvimento, siga estes passos:
    docker-compose up -d
    ```
 
-3. **Acesse a Aplicação:** Assim que os containers estiverem em execução, você pode acessar a aplicação em `http://localhost:3000`. Caso queira adicionar algo: `curl -X POST http://localhost:3000/feedback -H "Content-Type: application/json" -d "{\"aluno\": \"Nome\", \"satisfação\": 0"` e acesse `http://localhost:3000/feedback_aluno`
+3. **Acesse a Aplicação:** Assim que os containers estiverem em execução, você pode acessar a aplicação em `http://localhost:3000`.
+   Caso queira adicionar algo: `curl -X POST http://localhost:3000/feedback -H "Content-Type: application/json" -d "{\"aluno\": \"Nome\", \"satisfação\": 0"`
+   e acesse: `http://localhost:3000/feedback_aluno`
