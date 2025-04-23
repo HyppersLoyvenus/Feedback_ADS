@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+
+  db:
+    build: ./db
+    container_name: feedback_ads_db
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: faat
+      POSTGRES_DB: init_db
+    volumes:
+      - ./dbfiles
+    ports:
+      - "5432:3000"
+    networks:
+      - app-network
+
+  mongo:
+    build: ./mongo
+    container_name: feedback_ads_mg
+    volumes:
+      - ./files
+    ports:
+      - "27017:3000"
+    networks:
+      - app-network
+  
+  app:
+    build: ./app
+    container_name: feedback_ads_app
+    environment:
+      - node_env=development
+    volumes:
+      - ./appfiles
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
+    command: "npm start"
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  dbfiles: {}
+  files: {}
+  appfiles: {}
