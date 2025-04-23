@@ -1,0 +1,7 @@
+FROM postgres:17
+
+ENV POSTGRES_USER=admin
+ENV POSTGRES_PASSWORD=faat
+ENV POSTGRES_DB=feedback_ads
+
+EXPOSE 5432

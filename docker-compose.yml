@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+
+  postgres:
+    build:
+      context: ./Docker/postgres
+    volumes:
+      - ./Docker/postgres/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: faat
+      POSTGRES_DB: feedback_ads
+    networks:
+      - feedback-network
+
+  mongo:
+    build:
+      context: ./Docker/mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: faat
+    networks:
+      - feedback-network
+  
+  node:
+    build:
+      context: ./Docker/node
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    networks:
+      - feedback-network
+
+networks:
+  feedback-network:
+    driver: bridge

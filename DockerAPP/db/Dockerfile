@@ -1,7 +1,0 @@
-FROM postgres:latest 
-
-ENV POSTGRES_USER=admin
-ENV POSTGRES_PASSWORD=faat
-ENV POSTGRES_DB=init_db
-
-EXPOSE 5432
